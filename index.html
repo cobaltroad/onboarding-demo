@@ -205,6 +205,60 @@
     }
 
     .flow-slide{background:linear-gradient(180deg,#0f172a 0%,#1e293b 100%)}.flow-slide h2{font-size:2.5rem;margin-bottom:2rem;text-align:center}.flow-steps{list-style:none;counter-reset:step;max-width:700px;margin:0 auto 2rem}.flow-steps li{counter-increment:step;position:relative;padding:1.5rem 1.5rem 1.5rem 4rem;margin-bottom:1.5rem;background:rgba(15,23,42,.6);border-radius:8px;border:1px solid var(--border)}.flow-steps li::before{content:counter(step);position:absolute;left:1rem;top:1.25rem;width:2rem;height:2rem;background:var(--accent);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700}.tech-callout{max-width:700px;margin:0 auto;padding:1.5rem;background:rgba(59,130,246,.1);border-left:4px solid var(--accent);border-radius:4px;font-size:1rem}.tech-callout code{background:rgba(15,23,42,.8);padding:.25rem .5rem;border-radius:4px;font-family:"SF Mono",Monaco,monospace;font-size:.9em}.cta-slide{background:radial-gradient(circle at 50% 20%,#1e3a8a 0%,#0a0e1a 60%);text-align:center}.cta-slide h2{font-size:2.5rem;margin-bottom:1rem}.cta-subhead{font-size:1.25rem;color:var(--text-muted);margin-bottom:2rem}.cta-actions{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}.deck-footer{text-align:center;padding:1.5rem;font-size:.875rem;color:var(--text-muted);background:var(--bg-dark);border-top:1px solid var(--border)}@media (max-width:768px){.mock-body{grid-template-columns:1fr}.mock-sidebar{border-right:none;border-bottom:1px solid var(--border)}.two-col{grid-template-columns:1fr}.analytics-grid{grid-template-columns:1fr}}
+
+    /* Interactive Mockup Styles */
+    .mock-window { position: relative; }
+    .mock-main { padding: 0; display: flex; flex-direction: column; overflow: hidden; }
+    .mock-nav-item { cursor: pointer; transition: background .15s, color .15s; }
+    .mock-nav-item:hover { background: rgba(59,130,246,.08); color: var(--text-light); }
+
+    .mock-tabs { display: flex; align-items: center; gap: .375rem; padding: .75rem 1rem .5rem; border-bottom: 1px solid var(--border); overflow-x: auto; flex-shrink: 0; background: rgba(15,23,42,.6); }
+    .mock-tab { padding: .375rem .875rem; border-radius: 6px 6px 0 0; font-size: .8rem; cursor: pointer; background: rgba(255,255,255,.05); border: 1px solid transparent; color: var(--text-muted); transition: all .15s; white-space: nowrap; }
+    .mock-tab:hover { background: rgba(255,255,255,.1); color: var(--text-light); }
+    .mock-tab.active { background: rgba(59,130,246,.2); border-color: var(--accent); color: var(--accent); }
+    .mock-tab-add { padding: .375rem .75rem; border-radius: 6px; font-size: .8rem; cursor: pointer; background: transparent; border: 1px dashed var(--border); color: var(--text-muted); transition: all .15s; white-space: nowrap; margin-left: .25rem; }
+    .mock-tab-add:hover { border-color: var(--accent); color: var(--accent); }
+
+    .mock-view { display: none; flex-direction: column; flex: 1; overflow: hidden; }
+    .mock-view.active { display: flex; }
+
+    .mock-roster-body { padding: 1rem 1.25rem; display: flex; flex-direction: column; flex: 1; overflow: hidden; }
+    .mock-usage-body { padding: 1.25rem; display: flex; flex-direction: column; gap: 1rem; }
+    .mock-onboarding-body { padding: 1.25rem; display: flex; flex-direction: column; gap: .75rem; }
+
+    .row-actions { display: flex; gap: .375rem; }
+    .row-btn { padding: .2rem .55rem; font-size: .75rem; border: 1px solid var(--border); background: transparent; color: var(--text-muted); border-radius: 4px; cursor: pointer; transition: all .15s; }
+    .row-btn:hover { border-color: var(--accent); color: var(--accent); }
+    .row-btn.danger:hover { border-color: #ef4444; color: #ef4444; }
+    .row-btn.sent { border-color: var(--success); color: var(--success); }
+
+    .mock-modal-overlay { position: absolute; inset: 0; z-index: 10; border-radius: 12px; background: rgba(0,0,0,.6); display: none; align-items: center; justify-content: center; }
+    .mock-modal-overlay.open { display: flex; }
+    .mock-modal { background: #1e293b; border: 1px solid var(--border); border-radius: 10px; padding: 1.5rem; width: 340px; max-width: 90%; display: flex; flex-direction: column; gap: 1rem; }
+    .mock-modal h4 { font-size: 1.1rem; margin: 0; }
+    .mock-field { display: flex; flex-direction: column; gap: .35rem; }
+    .mock-field label { font-size: .8rem; color: var(--text-muted); }
+    .mock-input, .mock-select { padding: .5rem .75rem; background: rgba(15,23,42,.8); border: 1px solid var(--border); border-radius: 6px; color: var(--text-light); font-size: .875rem; width: 100%; outline: none; transition: border-color .15s; }
+    .mock-input:focus, .mock-select:focus { border-color: var(--accent); }
+    .mock-select option { background: #1e293b; }
+    .mock-modal-actions { display: flex; gap: .75rem; justify-content: flex-end; margin-top: .25rem; }
+    .mock-modal-btn { padding: .45rem 1rem; border-radius: 6px; font-size: .875rem; cursor: pointer; border: none; transition: all .15s; }
+    .mock-modal-btn.primary { background: var(--accent); color: #fff; }
+    .mock-modal-btn.primary:hover { background: var(--accent-hover); }
+    .mock-modal-btn.cancel { background: transparent; border: 1px solid var(--border); color: var(--text-muted); }
+    .mock-modal-btn.cancel:hover { border-color: var(--text-muted); color: var(--text-light); }
+
+    .usage-bar-bg { background: rgba(255,255,255,.08); border-radius: 999px; height: 12px; overflow: hidden; }
+    .usage-bar-fill { height: 100%; border-radius: 999px; background: linear-gradient(90deg, var(--accent), #8b5cf6); transition: width .4s ease; }
+
+    .check-list { list-style: none; display: flex; flex-direction: column; gap: .5rem; }
+    .check-item { display: flex; align-items: center; gap: .75rem; padding: .6rem .75rem; border-radius: 8px; cursor: pointer; transition: background .15s; font-size: .9rem; }
+    .check-item:hover { background: rgba(255,255,255,.05); }
+    .check-circle { width: 20px; height: 20px; border-radius: 50%; border: 2px solid var(--border); flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-size: .65rem; transition: all .2s; }
+    .check-item.done .check-circle { background: var(--success); border-color: var(--success); color: #fff; }
+    .check-item.done span:last-child { text-decoration: line-through; color: var(--text-muted); }
+
+    .mock-empty { text-align: center; padding: 2rem; color: var(--text-muted); font-size: .9rem; font-style: italic; }
   </style>
 </head>
 <body>
@@ -268,7 +322,7 @@
     </div>
   </section>
 
-  <!-- Slide 4: Visual Mockup -->
+  <!-- Slide 4: Visual Mockup (Interactive) -->
   <section class="slide mockup-slide">
     <div class="slide-content">
       <h2>What it looks like</h2>
@@ -281,49 +335,123 @@
             <span class="mock-title">ACME Corp · Customer Admin Portal</span>
           </div>
           <div class="mock-body">
+            <!-- Sidebar -->
             <div class="mock-sidebar">
-              <div class="mock-nav-item active">Rosters</div>
-              <div class="mock-nav-item">Usage</div>
-              <div class="mock-nav-item">Onboarding</div>
+              <div class="mock-nav-item active" data-view="rosters">Rosters</div>
+              <div class="mock-nav-item" data-view="usage">Usage</div>
+              <div class="mock-nav-item" data-view="onboarding">Onboarding</div>
             </div>
+
+            <!-- Main area -->
             <div class="mock-main">
-              <div class="mock-header">
-                <h3>Engineering</h3>
-                <button class="mock-btn">Invite member</button>
+
+              <!-- Rosters view -->
+              <div id="view-rosters" class="mock-view active">
+                <div class="mock-tabs">
+                  <div class="mock-tab active" data-season="2425">24/25 Season</div>
+                  <div class="mock-tab" data-season="2526">25/26 Season</div>
+                  <button class="mock-tab-add" id="add-season-btn">+ New Season</button>
+                </div>
+                <div class="mock-roster-body">
+                  <div class="mock-header">
+                    <h3 id="season-label">24/25 Season</h3>
+                    <button class="mock-btn" id="invite-btn">Invite member</button>
+                  </div>
+                  <table class="mock-table">
+                    <thead>
+                      <tr>
+                        <th>Email</th>
+                        <th>Role</th>
+                        <th>Status</th>
+                        <th>Last active</th>
+                        <th></th>
+                      </tr>
+                    </thead>
+                    <tbody id="roster-tbody"></tbody>
+                  </table>
+                </div>
               </div>
-              <table class="mock-table">
-                <thead>
-                  <tr>
-                    <th>Email</th>
-                    <th>Role</th>
-                    <th>Status</th>
-                    <th>Last active</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>dev1@acme.com</td>
-                    <td>Admin</td>
-                    <td><span class="badge active">Active</span></td>
-                    <td>Today</td>
-                  </tr>
-                  <tr>
-                    <td>dev2@acme.com</td>
-                    <td>Member</td>
-                    <td><span class="badge active">Active</span></td>
-                    <td>Yesterday</td>
-                  </tr>
-                  <tr>
-                    <td>dev3@acme.com</td>
-                    <td>Member</td>
-                    <td><span class="badge invited">Invited</span></td>
-                    <td>—</td>
-                  </tr>
-                </tbody>
-              </table>
+
+              <!-- Usage view -->
+              <div id="view-usage" class="mock-view">
+                <div class="mock-usage-body">
+                  <div class="mock-header" style="margin-bottom:0">
+                    <h3>Seat Usage</h3>
+                  </div>
+                  <div>
+                    <div style="display:flex;justify-content:space-between;font-size:.85rem;color:var(--text-muted);margin-bottom:.5rem">
+                      <span>54 of 65 seats used</span><span>83%</span>
+                    </div>
+                    <div class="usage-bar-bg"><div class="usage-bar-fill" style="width:83%"></div></div>
+                  </div>
+                  <ul class="stat-list" style="margin-top:.5rem">
+                    <li><span class="stat-name">Active this week</span><span class="stat-value">41</span></li>
+                    <li><span class="stat-name">Never logged in</span><span class="stat-value">7</span></li>
+                    <li><span class="stat-name">Invited / pending</span><span class="stat-value">6</span></li>
+                    <li><span class="stat-name">Seats remaining</span><span class="stat-value">11</span></li>
+                  </ul>
+                </div>
+              </div>
+
+              <!-- Onboarding view -->
+              <div id="view-onboarding" class="mock-view">
+                <div class="mock-onboarding-body">
+                  <div class="mock-header" style="margin-bottom:.25rem">
+                    <h3>Onboarding Checklist</h3>
+                  </div>
+                  <ul class="check-list">
+                    <li class="check-item done"><div class="check-circle">✓</div><span>Set up first season roster</span></li>
+                    <li class="check-item done"><div class="check-circle">✓</div><span>Invite team members</span></li>
+                    <li class="check-item"><div class="check-circle"></div><span>Review seat usage</span></li>
+                    <li class="check-item"><div class="check-circle"></div><span>Configure email notifications</span></li>
+                    <li class="check-item"><div class="check-circle"></div><span>Connect SSO</span></li>
+                  </ul>
+                </div>
+              </div>
+
+            </div><!-- /.mock-main -->
+          </div><!-- /.mock-body -->
+
+          <!-- Invite modal -->
+          <div class="mock-modal-overlay" id="invite-modal">
+            <div class="mock-modal">
+              <h4>Invite Member</h4>
+              <div class="mock-field">
+                <label for="invite-email">Email address</label>
+                <input class="mock-input" id="invite-email" type="email" placeholder="coach@team.com" />
+              </div>
+              <div class="mock-field">
+                <label for="invite-role">Role</label>
+                <select class="mock-select" id="invite-role">
+                  <option value="Coach">Coach</option>
+                  <option value="Player">Player</option>
+                  <option value="Manager">Manager</option>
+                  <option value="Staff">Staff</option>
+                </select>
+              </div>
+              <div class="mock-modal-actions">
+                <button class="mock-modal-btn cancel" id="invite-cancel">Cancel</button>
+                <button class="mock-modal-btn primary" id="invite-submit">Send Invite</button>
+              </div>
             </div>
           </div>
-        </div>
+
+          <!-- New Season modal -->
+          <div class="mock-modal-overlay" id="season-modal">
+            <div class="mock-modal">
+              <h4>New Season</h4>
+              <div class="mock-field">
+                <label for="season-name">Season name</label>
+                <input class="mock-input" id="season-name" type="text" placeholder="e.g. 26/27 Season" />
+              </div>
+              <div class="mock-modal-actions">
+                <button class="mock-modal-btn cancel" id="season-cancel">Cancel</button>
+                <button class="mock-modal-btn primary" id="season-submit">Create</button>
+              </div>
+            </div>
+          </div>
+
+        </div><!-- /.mock-window -->
       </div>
     </div>
   </section>
@@ -545,6 +673,155 @@
 
   <script>
     document.addEventListener('DOMContentLoaded', () => {
+
+      // ── Interactive Mockup ────────────────────────────────────────────
+      const rosterData = {
+        '2425': {
+          label: '24/25 Season',
+          members: [
+            { email: 'jsmith@acme.com',   role: 'Coach',   status: 'active',  last: 'Today' },
+            { email: 'mlee@acme.com',     role: 'Player',  status: 'active',  last: 'Yesterday' },
+            { email: 'tdavis@acme.com',   role: 'Manager', status: 'active',  last: '3 days ago' },
+            { email: 'rbrown@acme.com',   role: 'Staff',   status: 'invited', last: '—' },
+          ]
+        },
+        '2526': {
+          label: '25/26 Season',
+          members: [
+            { email: 'jsmith@acme.com',   role: 'Coach',   status: 'active',  last: 'Today' },
+            { email: 'kwilson@acme.com',  role: 'Player',  status: 'active',  last: '2 days ago' },
+            { email: 'apatel@acme.com',   role: 'Player',  status: 'invited', last: '—' },
+          ]
+        }
+      };
+      let currentSeason = '2425';
+
+      function renderRoster(seasonKey) {
+        const tbody = document.getElementById('roster-tbody');
+        const data = rosterData[seasonKey];
+        document.getElementById('season-label').textContent = data.label;
+        if (!data.members.length) {
+          tbody.innerHTML = '<tr><td colspan="5"><div class="mock-empty">No members yet — invite someone to get started.</div></td></tr>';
+          return;
+        }
+        tbody.innerHTML = data.members.map((m, i) => {
+          const actions = m.status === 'invited'
+            ? `<div class="row-actions"><button class="row-btn resend-btn" data-idx="${i}">Resend</button><button class="row-btn danger remove-btn" data-idx="${i}">Remove</button></div>`
+            : `<div class="row-actions"><button class="row-btn danger remove-btn" data-idx="${i}">Remove</button></div>`;
+          return `<tr>
+            <td>${m.email}</td>
+            <td>${m.role}</td>
+            <td><span class="badge ${m.status}">${m.status === 'active' ? 'Active' : 'Invited'}</span></td>
+            <td>${m.last}</td>
+            <td>${actions}</td>
+          </tr>`;
+        }).join('');
+      }
+
+      function switchSeason(key) {
+        currentSeason = key;
+        document.querySelectorAll('.mock-tab[data-season]').forEach(t =>
+          t.classList.toggle('active', t.dataset.season === key));
+        renderRoster(key);
+      }
+
+      // Sidebar nav
+      document.querySelectorAll('.mock-nav-item[data-view]').forEach(item => {
+        item.addEventListener('click', () => {
+          document.querySelectorAll('.mock-nav-item').forEach(n => n.classList.remove('active'));
+          item.classList.add('active');
+          const viewId = 'view-' + item.dataset.view;
+          document.querySelectorAll('.mock-view').forEach(v => v.classList.remove('active'));
+          document.getElementById(viewId).classList.add('active');
+        });
+      });
+
+      // Season tabs
+      document.querySelectorAll('.mock-tab[data-season]').forEach(tab => {
+        tab.addEventListener('click', () => switchSeason(tab.dataset.season));
+      });
+
+      // New season modal
+      const seasonModal = document.getElementById('season-modal');
+      document.getElementById('add-season-btn').addEventListener('click', () => {
+        document.getElementById('season-name').value = '';
+        seasonModal.classList.add('open');
+        document.getElementById('season-name').focus();
+      });
+      document.getElementById('season-cancel').addEventListener('click', () => seasonModal.classList.remove('open'));
+      function submitNewSeason() {
+        const name = document.getElementById('season-name').value.trim();
+        if (!name) return;
+        const key = 'custom_' + Date.now();
+        rosterData[key] = { label: name, members: [] };
+        const tabsBar = document.querySelector('.mock-tabs');
+        const addBtn = document.getElementById('add-season-btn');
+        const newTab = document.createElement('div');
+        newTab.className = 'mock-tab';
+        newTab.dataset.season = key;
+        newTab.textContent = name;
+        newTab.addEventListener('click', () => switchSeason(key));
+        tabsBar.insertBefore(newTab, addBtn);
+        seasonModal.classList.remove('open');
+        switchSeason(key);
+      }
+      document.getElementById('season-submit').addEventListener('click', submitNewSeason);
+      document.getElementById('season-name').addEventListener('keydown', e => { if (e.key === 'Enter') submitNewSeason(); });
+
+      // Invite modal
+      const inviteModal = document.getElementById('invite-modal');
+      document.getElementById('invite-btn').addEventListener('click', () => {
+        document.getElementById('invite-email').value = '';
+        document.getElementById('invite-role').selectedIndex = 0;
+        inviteModal.classList.add('open');
+        document.getElementById('invite-email').focus();
+      });
+      document.getElementById('invite-cancel').addEventListener('click', () => inviteModal.classList.remove('open'));
+      function submitInvite() {
+        const email = document.getElementById('invite-email').value.trim();
+        const role  = document.getElementById('invite-role').value;
+        if (!email) return;
+        rosterData[currentSeason].members.push({ email, role, status: 'invited', last: '—' });
+        inviteModal.classList.remove('open');
+        renderRoster(currentSeason);
+      }
+      document.getElementById('invite-submit').addEventListener('click', submitInvite);
+      document.getElementById('invite-email').addEventListener('keydown', e => { if (e.key === 'Enter') submitInvite(); });
+
+      // Row actions (delegated)
+      document.getElementById('roster-tbody').addEventListener('click', e => {
+        const removeBtn = e.target.closest('.remove-btn');
+        const resendBtn = e.target.closest('.resend-btn');
+        if (removeBtn) {
+          const idx = parseInt(removeBtn.dataset.idx, 10);
+          rosterData[currentSeason].members.splice(idx, 1);
+          renderRoster(currentSeason);
+        }
+        if (resendBtn && !resendBtn.classList.contains('sent')) {
+          resendBtn.textContent = 'Sent!';
+          resendBtn.classList.add('sent');
+          setTimeout(() => {
+            resendBtn.textContent = 'Resend';
+            resendBtn.classList.remove('sent');
+          }, 2000);
+        }
+      });
+
+      // Onboarding checklist
+      document.querySelectorAll('.check-item').forEach(item => {
+        item.addEventListener('click', () => item.classList.toggle('done'));
+      });
+
+      // Close modals on overlay click
+      [inviteModal, seasonModal].forEach(modal => {
+        modal.addEventListener('click', e => { if (e.target === modal) modal.classList.remove('open'); });
+      });
+
+      // Initial render
+      renderRoster('2425');
+
+      // ── End Interactive Mockup ────────────────────────────────────────
+
       // Smooth scroll for anchor links
       document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', e => {
