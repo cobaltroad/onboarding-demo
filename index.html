@@ -259,6 +259,26 @@
     .check-item.done span:last-child { text-decoration: line-through; color: var(--text-muted); }
 
     .mock-empty { text-align: center; padding: 2rem; color: var(--text-muted); font-size: .9rem; font-style: italic; }
+
+    /* Roadmap Slide */
+    .roadmap-slide { background: linear-gradient(180deg, #0a0e1a 0%, #1e293b 100%); }
+    .roadmap-slide h2 { font-size: 2.5rem; margin-bottom: .5rem; text-align: center; }
+    .roadmap-intro { text-align: center; color: var(--text-muted); margin-bottom: 2rem; font-size: 1rem; }
+    .roadmap-phase-label { font-size: .7rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; margin-bottom: .75rem; }
+    .roadmap-phase-label.phase0 { color: #a78bfa; }
+    .roadmap-phase-label.phase1 { color: var(--accent); }
+    .epic-grid-full { display: grid; grid-template-columns: 1fr; gap: 1rem; margin-bottom: 1.25rem; }
+    .epic-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-bottom: 1.25rem; }
+    .epic-card { background: rgba(15,23,42,.7); border: 1px solid var(--border); border-radius: 10px; padding: 1rem 1.25rem; }
+    .epic-card.phase0 { border-color: rgba(167,139,250,.35); background: rgba(167,139,250,.06); }
+    .epic-card-header { display: flex; align-items: baseline; gap: .6rem; margin-bottom: .6rem; }
+    .epic-num { font-size: .7rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--text-muted); white-space: nowrap; }
+    .epic-card.phase0 .epic-num { color: #a78bfa; }
+    .epic-title { font-size: .95rem; font-weight: 600; color: var(--text-light); }
+    .epic-stories { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: .3rem; }
+    .epic-stories li { font-size: .78rem; color: var(--text-muted); padding-left: 1rem; position: relative; line-height: 1.4; }
+    .epic-stories li::before { content: "–"; position: absolute; left: 0; color: var(--border); }
+    @media (max-width: 768px) { .epic-grid { grid-template-columns: 1fr; } }
     .mock-textarea { padding: .5rem .75rem; background: rgba(15,23,42,.8); border: 1px solid var(--border); border-radius: 6px; color: var(--text-light); font-size: .8rem; font-family: "SF Mono", Monaco, monospace; width: 100%; outline: none; resize: vertical; min-height: 140px; transition: border-color .15s; line-height: 1.5; }
     .mock-textarea:focus { border-color: var(--accent); }
     .mock-modal.wide { width: 460px; }
@@ -682,7 +702,89 @@
     </div>
   </section>
 
-  <!-- Slide 9: Next steps / CTA -->
+  <!-- Slide 9: Scope of Work -->
+  <section class="slide roadmap-slide">
+    <div class="slide-content">
+      <h2>Scope of work</h2>
+      <p class="roadmap-intro">Six epics, sequenced so each phase delivers value independently.</p>
+
+      <p class="roadmap-phase-label phase0">Phase 0 — Foundation</p>
+      <div class="epic-grid-full">
+        <div class="epic-card phase0">
+          <div class="epic-card-header">
+            <span class="epic-num">Epic 0</span>
+            <span class="epic-title">Integration &amp; Infrastructure</span>
+          </div>
+          <ul class="epic-stories">
+            <li>OAuth integration with your existing SSO provider</li>
+            <li>Typed API client wrapping roster CRUD and usage endpoints</li>
+            <li>Automated deployment to GitHub Pages via CI/CD</li>
+          </ul>
+        </div>
+      </div>
+
+      <p class="roadmap-phase-label phase1">Phase 1 — Core Portal</p>
+      <div class="epic-grid">
+        <div class="epic-card">
+          <div class="epic-card-header">
+            <span class="epic-num">Epic 1</span>
+            <span class="epic-title">Roster Management</span>
+          </div>
+          <ul class="epic-stories">
+            <li>View season roster with status and last-active</li>
+            <li>Invite a single member with role assignment</li>
+            <li>Bulk import via CSV paste</li>
+            <li>Remove a member</li>
+            <li>Resend a pending invitation</li>
+          </ul>
+        </div>
+        <div class="epic-card">
+          <div class="epic-card-header">
+            <span class="epic-num">Epic 2</span>
+            <span class="epic-title">Season Management</span>
+          </div>
+          <ul class="epic-stories">
+            <li>Switch between existing seasons via tabs</li>
+            <li>Create a new season with a custom name</li>
+          </ul>
+        </div>
+        <div class="epic-card">
+          <div class="epic-card-header">
+            <span class="epic-num">Epic 3</span>
+            <span class="epic-title">Usage Monitoring</span>
+          </div>
+          <ul class="epic-stories">
+            <li>Seat usage progress bar (used / total)</li>
+            <li>Quick stats: active, never logged in, pending, remaining</li>
+            <li>Visual warning when approaching capacity</li>
+          </ul>
+        </div>
+        <div class="epic-card">
+          <div class="epic-card-header">
+            <span class="epic-num">Epic 4</span>
+            <span class="epic-title">Onboarding Checklist</span>
+          </div>
+          <ul class="epic-stories">
+            <li>Guided setup steps from first login to full adoption</li>
+            <li>Persistent completion state per admin</li>
+          </ul>
+        </div>
+        <div class="epic-card">
+          <div class="epic-card-header">
+            <span class="epic-num">Epic 5</span>
+            <span class="epic-title">Email &amp; AI Insights</span>
+          </div>
+          <ul class="epic-stories">
+            <li>Weekly usage digest email per admin</li>
+            <li>AI-generated plain-language engagement summaries</li>
+            <li>Seat capacity forecasting and churn signals</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Slide 10: Next steps / CTA -->
   <section class="slide cta-slide">
     <div class="slide-content">
       <h2>Ready to eliminate onboarding friction?</h2>
