@@ -259,6 +259,15 @@
     .check-item.done span:last-child { text-decoration: line-through; color: var(--text-muted); }
 
     .mock-empty { text-align: center; padding: 2rem; color: var(--text-muted); font-size: .9rem; font-style: italic; }
+    .mock-textarea { padding: .5rem .75rem; background: rgba(15,23,42,.8); border: 1px solid var(--border); border-radius: 6px; color: var(--text-light); font-size: .8rem; font-family: "SF Mono", Monaco, monospace; width: 100%; outline: none; resize: vertical; min-height: 140px; transition: border-color .15s; line-height: 1.5; }
+    .mock-textarea:focus { border-color: var(--accent); }
+    .mock-modal.wide { width: 460px; }
+    .import-hint { font-size: .75rem; color: var(--text-muted); }
+    .import-result { font-size: .8rem; padding: .5rem .75rem; border-radius: 6px; display: none; }
+    .import-result.success { background: rgba(16,185,129,.1); color: var(--success); display: block; }
+    .import-result.error { background: rgba(239,68,68,.1); color: #ef4444; display: block; }
+    .mock-btn-secondary { padding: .5rem 1rem; background: transparent; color: var(--text-muted); border: 1px solid var(--border); border-radius: 6px; font-size: .875rem; cursor: pointer; transition: all .15s; }
+    .mock-btn-secondary:hover { border-color: var(--accent); color: var(--accent); }
   </style>
 </head>
 <body>
@@ -355,7 +364,10 @@
                 <div class="mock-roster-body">
                   <div class="mock-header">
                     <h3 id="season-label">24/25 Season</h3>
-                    <button class="mock-btn" id="invite-btn">Invite member</button>
+                    <div style="display:flex;gap:.5rem">
+                      <button class="mock-btn-secondary" id="bulk-import-btn">Bulk import</button>
+                      <button class="mock-btn" id="invite-btn">Invite member</button>
+                    </div>
                   </div>
                   <table class="mock-table">
                     <thead>
@@ -432,6 +444,23 @@
               <div class="mock-modal-actions">
                 <button class="mock-modal-btn cancel" id="invite-cancel">Cancel</button>
                 <button class="mock-modal-btn primary" id="invite-submit">Send Invite</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bulk Import modal -->
+          <div class="mock-modal-overlay" id="bulk-modal">
+            <div class="mock-modal wide">
+              <h4>Bulk Import Members</h4>
+              <div class="mock-field">
+                <label for="bulk-csv">Paste CSV — one member per line</label>
+                <textarea class="mock-textarea" id="bulk-csv" placeholder="email,role&#10;alice@team.com,Coach&#10;bob@team.com,Player&#10;carol@team.com,Manager"></textarea>
+              </div>
+              <p class="import-hint">Columns: <strong>email</strong>, <strong>role</strong> (Coach / Player / Manager / Staff). Header row optional.</p>
+              <div id="import-result" class="import-result"></div>
+              <div class="mock-modal-actions">
+                <button class="mock-modal-btn cancel" id="bulk-cancel">Cancel</button>
+                <button class="mock-modal-btn primary" id="bulk-submit">Import</button>
               </div>
             </div>
           </div>
@@ -787,6 +816,54 @@
       }
       document.getElementById('invite-submit').addEventListener('click', submitInvite);
       document.getElementById('invite-email').addEventListener('keydown', e => { if (e.key === 'Enter') submitInvite(); });
+
+      // Bulk import modal
+      const bulkModal = document.getElementById('bulk-modal');
+      const importResult = document.getElementById('import-result');
+      const validRoles = new Set(['coach', 'player', 'manager', 'staff']);
+
+      document.getElementById('bulk-import-btn').addEventListener('click', () => {
+        document.getElementById('bulk-csv').value = '';
+        importResult.className = 'import-result';
+        importResult.textContent = '';
+        bulkModal.classList.add('open');
+        document.getElementById('bulk-csv').focus();
+      });
+      document.getElementById('bulk-cancel').addEventListener('click', () => bulkModal.classList.remove('open'));
+
+      function submitBulkImport() {
+        const raw = document.getElementById('bulk-csv').value.trim();
+        if (!raw) return;
+        const lines = raw.split(/\r?\n/).map(l => l.trim()).filter(Boolean);
+        const members = [];
+        const errors = [];
+        lines.forEach((line, i) => {
+          const parts = line.split(',').map(p => p.trim());
+          const email = parts[0];
+          const roleRaw = parts[1] || '';
+          // Skip header row
+          if (i === 0 && email.toLowerCase() === 'email') return;
+          if (!email || !email.includes('@')) { errors.push(`Line ${i + 1}: invalid email "${email}"`); return; }
+          const role = roleRaw.charAt(0).toUpperCase() + roleRaw.slice(1).toLowerCase();
+          if (roleRaw && !validRoles.has(roleRaw.toLowerCase())) { errors.push(`Line ${i + 1}: unknown role "${roleRaw}"`); return; }
+          members.push({ email, role: role || 'Player', status: 'invited', last: '—' });
+        });
+        if (errors.length) {
+          importResult.className = 'import-result error';
+          importResult.textContent = errors.join(' · ');
+          return;
+        }
+        if (!members.length) {
+          importResult.className = 'import-result error';
+          importResult.textContent = 'No valid rows found.';
+          return;
+        }
+        rosterData[currentSeason].members.push(...members);
+        bulkModal.classList.remove('open');
+        renderRoster(currentSeason);
+      }
+      document.getElementById('bulk-submit').addEventListener('click', submitBulkImport);
+      bulkModal.addEventListener('click', e => { if (e.target === bulkModal) bulkModal.classList.remove('open'); });
 
       // Row actions (delegated)
       document.getElementById('roster-tbody').addEventListener('click', e => {
