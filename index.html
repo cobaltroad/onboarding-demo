@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Self-Service Onboarding Portal – Proposal</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    :root {
+      --bg-dark: #0a0e1a;
+      --bg-light: #f8fafc;
+      --accent: #3b82f6;
+      --accent-hover: #2563eb;
+      --text-dark: #1e293b;
+      --text-light: #e2e8f0;
+      --text-muted: #94a3b8;
+      --border: #334155;
+      --success: #10b981;
+      --warning: #f59e0b;
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", system-ui, sans-serif;
+    }
+
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}body{background:var(--bg-dark);color:var(--text-light);line-height:1.6;scroll-behavior:smooth;overflow-x:hidden}.slide{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:3rem 1.5rem;position:relative}.slide-content{max-width:1100px;width:100%}.hero-slide{background:radial-gradient(circle at 30% 20%,#1e3a8a 0%,#0a0e1a 60%);text-align:center}.headline{font-size:clamp(2.5rem,5vw,4rem);font-weight:700;line-height:1.1;margin-bottom:1.5rem;background:linear-gradient(135deg,#60a5fa,#a78bfa);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}.subhead{font-size:clamp(1.125rem,2vw,1.5rem);color:var(--text-muted);margin-bottom:2rem}.cta-btn{display:inline-block;padding:.875rem 2rem;border-radius:999px;font-weight:600;text-decoration:none;transition:all .2s}.cta-btn.primary{background:linear-gradient(135deg,#3b82f6,#8b5cf6);color:#fff}.cta-btn.primary:hover{transform:translateY(-2px);box-shadow:0 12px 24px rgba(59,130,246,.4)}.cta-btn.secondary{background:rgba(255,255,255,.1);color:var(--text-light);border:1px solid var(--border)}.dark-slide{background:linear-gradient(180deg,#0a0e1a 0%,#1e293b 100%)}.dark-slide h2{font-size:2.5rem;margin-bottom:2rem;text-align:center}.two-col{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:2rem;margin-top:2rem}.pain-point{background:rgba(15,23,42,.6);padding:1.5rem;border-radius:12px;border:1px solid var(--border)}.emoji{font-size:2.5rem;display:block;margin-bottom:.75rem}.pain-point h3{font-size:1.25rem;margin-bottom:.5rem}.pain-point p{color:var(--text-muted);font-size:.95rem}.light-slide{background:var(--bg-light);color:var(--text-dark)}.light-slide h2{font-size:2.5rem;margin-bottom:1rem;text-align:center}.intro{text-align:center;font-size:1.25rem;margin-bottom:2rem;color:#475569}.feature-list{list-style:none;max-width:700px;margin:0 auto 2rem}.feature-list li{padding:1rem 1.5rem;margin-bottom:1rem;background:#fff;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,.08);font-size:1.125rem}.tech-note{text-align:center;font-size:1rem;color:var(--success);font-weight:600}.mockup-slide{background:linear-gradient(180deg,#1e293b 0%,#0f172a 100%)}.mockup-slide h2{font-size:2.5rem;margin-bottom:2rem;text-align:center}.mockup-frame{max-width:1000px;margin:0 auto}.mock-window{background:#0f172a;border-radius:12px;overflow:hidden;box-shadow:0 24px 48px rgba(0,0,0,.5);border:1px solid var(--border)}.mock-titlebar{background:rgba(15,23,42,.95);padding:.75rem 1rem;display:flex;align-items:center;gap:.5rem;border-bottom:1px solid var(--border)}.mock-dot{width:12px;height:12px;border-radius:50%;background:var(--border)}.mock-title{margin-left:auto;font-size:.875rem;color:var(--text-muted)}.mock-body{display:grid;grid-template-columns:200px 1fr;min-height:400px}.mock-sidebar{background:rgba(15,23,42,.8);padding:1rem;border-right:1px solid var(--border)}.mock-nav-item{padding:.5rem .75rem;margin-bottom:.5rem;border-radius:6px;font-size:.9rem;color:var(--text-muted)}.mock-nav-item.active{background:rgba(59,130,246,.15);color:var(--accent)}.mock-main{padding:1.5rem}.mock-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem}.mock-header h3{font-size:1.5rem}.mock-btn{padding:.5rem 1rem;background:var(--accent);color:#fff;border:none;border-radius:6px;font-size:.875rem;cursor:default}.mock-table{width:100%;border-collapse:collapse;font-size:.875rem}.mock-table th,.mock-table td{text-align:left;padding:.75rem;border-bottom:1px solid var(--border)}.mock-table th{color:var(--text-muted);font-weight:500}.badge{display:inline-block;padding:.25rem .75rem;border-radius:999px;font-size:.75rem;font-weight:600}.badge.active{background:rgba(16,185,129,.15);color:var(--success)}.badge.invited{background:rgba(245,158,11,.15);color:var(--warning)}.impact-slide{background:radial-gradient(circle at 70% 30%,#1e3a8a 0%,#0a0e1a 60%)}.impact-slide h2{font-size:2.5rem;margin-bottom:2rem;text-align:center}.metrics{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:2rem;margin-bottom:3rem}.metric-card{text-align:center;padding:2rem;background:rgba(15,23,42,.6);border-radius:12px;border:1px solid var(--border)}.metric-value{display:block;font-size:3rem;font-weight:700;color:var(--accent);margin-bottom:.5rem}.metric-label{display:block;font-size:1rem;color:var(--text-muted)}.impact-quote{font-size:1.375rem;text-align:center;font-style:italic;color:var(--text-muted);max-width:800px;margin:0 auto}.flow-slide{background:linear-gradient(180deg,#0f172a 0%,#1e293b 100%)}.flow-slide h2{font-size:2.5rem;margin-bottom:2rem;text-align:center}.flow-steps{list-style:none;counter-reset:step;max-width:700px;margin:0 auto 2rem}.flow-steps li{counter-increment:step;position:relative;padding:1.5rem 1.5rem 1.5rem 4rem;margin-bottom:1.5rem;background:rgba(15,23,42,.6);border-radius:8px;border:1px solid var(--border)}.flow-steps li::before{content:counter(step);position:absolute;left:1rem;top:1.25rem;width:2rem;height:2rem;background:var(--accent);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700}.tech-callout{max-width:700px;margin:0 auto;padding:1.5rem;background:rgba(59,130,246,.1);border-left:4px solid var(--accent);border-radius:4px;font-size:1rem}.tech-callout code{background:rgba(15,23,42,.8);padding:.25rem .5rem;border-radius:4px;font-family:"SF Mono",Monaco,monospace;font-size:.9em}.cta-slide{background:radial-gradient(circle at 50% 20%,#1e3a8a 0%,#0a0e1a 60%);text-align:center}.cta-slide h2{font-size:2.5rem;margin-bottom:1rem}.cta-subhead{font-size:1.25rem;color:var(--text-muted);margin-bottom:2rem}.cta-actions{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}.deck-footer{text-align:center;padding:1.5rem;font-size:.875rem;color:var(--text-muted);background:var(--bg-dark);border-top:1px solid var(--border)}@media (max-width:768px){.mock-body{grid-template-columns:1fr}.mock-sidebar{border-right:none;border-bottom:1px solid var(--border)}.two-col{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+
+  <!-- Slide 1: Hero / Problem statement -->
+  <section class="slide hero-slide">
+    <div class="slide-content">
+      <h1 class="headline">Your customers shouldn't need<br>a ticket to onboard users.</h1>
+      <p class="subhead">
+        Let customer admins manage rosters and monitor usage themselves—<br>
+        so your CS team can focus on revenue, not provisioning.
+      </p>
+      <a href="#problem" class="cta-btn primary">See the problem</a>
+    </div>
+  </section>
+
+  <!-- Slide 2: The Problem -->
+  <section id="problem" class="slide dark-slide">
+    <div class="slide-content">
+      <h2>The friction today</h2>
+      <div class="two-col">
+        <div class="pain-point">
+          <span class="emoji">🎫</span>
+          <h3>Every user change = a support ticket</h3>
+          <p>Customer admins email or Slack your team to add, remove, or reassign seats.</p>
+        </div>
+        <div class="pain-point">
+          <span class="emoji">⏱️</span>
+          <h3>Delayed onboarding</h3>
+          <p>New hires wait hours (or days) for access, slowing customer time-to-value.</p>
+        </div>
+        <div class="pain-point">
+          <span class="emoji">📊</span>
+          <h3>Zero visibility for customers</h3>
+          <p>They can't see which seats are used, who's active, or when to add capacity.</p>
+        </div>
+        <div class="pain-point">
+          <span class="emoji">💸</span>
+          <h3>CS time drain</h3>
+          <p>Your team spends hours/week on manual roster changes instead of expansion opportunities.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Slide 3: The Solution -->
+  <section class="slide light-slide">
+    <div class="slide-content">
+      <h2>The solution: Customer Admin Portal</h2>
+      <p class="intro">
+        A self-service interface that gives <strong>customer admins</strong> direct control over:
+      </p>
+      <ul class="feature-list">
+        <li><strong>Roster management</strong> – Create teams, invite users, assign roles, deactivate accounts</li>
+        <li><strong>Usage monitoring</strong> – See seat consumption, active users, and team-level activity</li>
+        <li><strong>Onboarding checklist</strong> – Guided steps from first login to full adoption</li>
+      </ul>
+      <p class="tech-note">
+        ✅ Integrates with your existing OAuth—no new auth flows to build.
+      </p>
+    </div>
+  </section>
+
+  <!-- Slide 4: Visual Mockup -->
+  <section class="slide mockup-slide">
+    <div class="slide-content">
+      <h2>What it looks like</h2>
+      <div class="mockup-frame">
+        <div class="mock-window">
+          <div class="mock-titlebar">
+            <span class="mock-dot"></span>
+            <span class="mock-dot"></span>
+            <span class="mock-dot"></span>
+            <span class="mock-title">ACME Corp · Customer Admin Portal</span>
+          </div>
+          <div class="mock-body">
+            <div class="mock-sidebar">
+              <div class="mock-nav-item active">Rosters</div>
+              <div class="mock-nav-item">Usage</div>
+              <div class="mock-nav-item">Onboarding</div>
+            </div>
+            <div class="mock-main">
+              <div class="mock-header">
+                <h3>Engineering</h3>
+                <button class="mock-btn">Invite member</button>
+              </div>
+              <table class="mock-table">
+                <thead>
+                  <tr>
+                    <th>Email</th>
+                    <th>Role</th>
+                    <th>Status</th>
+                    <th>Last active</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>dev1@acme.com</td>
+                    <td>Admin</td>
+                    <td><span class="badge active">Active</span></td>
+                    <td>Today</td>
+                  </tr>
+                  <tr>
+                    <td>dev2@acme
+
